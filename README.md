@@ -37,10 +37,26 @@ To solve this, the final `XGBoost` model incorporates:
 The final output is an interactive Power BI terminal allowing scouting departments to filter by age, position, and club to instantly visualize market inefficiencies. 
 *(See the `dashboard_preview.png` file in this repository for a visual overview).*
 
+## 📂 Data Source & Setup
+To maintain repository performance and adhere to data engineering best practices, the raw dataset is not hosted in this repository. 
+
+**The data is sourced from the official Transfermarkt dataset on Kaggle:**
+🔗 [Football Data from Transfermarkt (Kaggle)](https://www.kaggle.com/datasets/davidcariboo/player-scores)
+
+**Prerequisites for Reproducibility:**
+1. Download the raw `.csv` files from the Kaggle link above.
+2. Ensure you have a local instance of PostgreSQL installed and running.
+3. You must run the initial Data Engineering ETL script (db_ingestion.py) (to ingest the Kaggle CSVs, clean the data, and build the relational Star Schema) to generate the `ml_feature_base` table before executing the Machine Learning pipeline.
+
 ## 🚀 How to Run the Pipeline
-1. Clone the repository.
-2. Ensure PostgreSQL is installed and running locally.
-3. Update the `DB_PASSWORD` variable in the `train_valuation_model.py` script.
-4. Run the Python pipeline to extract, train, and load the intelligence into the database:
+1. Clone this repository to your local machine.
+2. Download the raw data from Kaggle and execute the initial ETL ingestion script to populate your local PostgreSQL database. 
+3. Open `train_valuation_model.py` and update the `DB_PASSWORD` variable with your local PostgreSQL credentials.
+4. Install the required Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+
+5. Execute the Machine Learning pipeline to generate valuations and calculate market arbitrage:
    ```bash
    python train_valuation_model.py
+
