@@ -46,11 +46,11 @@ To maintain repository performance and adhere to data engineering best practices
 **Prerequisites for Reproducibility:**
 1. Download the raw `.csv` files from the Kaggle link above.
 2. Ensure you have a local instance of PostgreSQL installed and running.
-3. You must run the initial Data Engineering ETL script (db_ingestion.py) (to ingest the Kaggle CSVs, clean the data, and build the relational Star Schema) to generate the `ml_feature_base` table before executing the Machine Learning pipeline.
+3. You must run the initial Data Engineering ETL scripts (to ingest the Kaggle CSVs, clean the data, and build the relational Star Schema) to generate the `ml_feature_base` table before executing the Machine Learning pipeline.
 
 ## 🚀 How to Run the Pipeline
 1. Clone this repository to your local machine.
-2. Download the raw data from Kaggle and execute the initial ETL ingestion script to populate your local PostgreSQL database. 
+2. Download the raw data from Kaggle and execute the initial ETL ingestion scripts to populate your local PostgreSQL database. 
 3. Open `train_valuation_model.py` and update the `DB_PASSWORD` variable with your local PostgreSQL credentials.
 4. Install the required Python dependencies:
    ```bash
